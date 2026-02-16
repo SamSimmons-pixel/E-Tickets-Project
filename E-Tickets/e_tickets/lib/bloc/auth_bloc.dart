@@ -84,6 +84,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     LogoutRequested event,
     Emitter<AuthState> emit,
   ) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_userKey);
+    await prefs.setBool('isLoggedIn', false);
     emit(const AuthLoading());
     try {
       await Future.delayed(const Duration(seconds: 2));
