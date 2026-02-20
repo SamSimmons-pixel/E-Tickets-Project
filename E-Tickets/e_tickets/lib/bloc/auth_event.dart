@@ -41,4 +41,5 @@ class RegisterRequested extends AuthEvent {
 // Event saat logout
 class LogoutRequested extends AuthEvent {
   const LogoutRequested();
+  
 }

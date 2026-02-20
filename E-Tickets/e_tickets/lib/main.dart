@@ -4,7 +4,7 @@ import 'package:e_tickets/bloc/auth_state.dart';
 import 'package:e_tickets/screens/auth/login.dart';
 import 'package:e_tickets/screens/auth/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:e_tickets/screens/auth/dashboard_screen.dart';
+import 'package:e_tickets/screens/dashboard/dashboard_screen.dart';
 
 import 'package:get/get.dart';
 
