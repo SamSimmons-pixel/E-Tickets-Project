@@ -132,7 +132,7 @@ class TicketCard extends StatelessWidget {
             MaterialPageRoute(
               builder: (_) => BlocProvider.value(
                 value: context.read<TicketBloc>(),
-                child: const TicketDetailScreen(),
+                child: const _TicketDetailDemoScreen(),
               ),
             ),
           );
@@ -142,9 +142,9 @@ class TicketCard extends StatelessWidget {
   }
 }
 
-/// Detail screen for a single ticket
-class TicketDetailScreen extends StatelessWidget {
-  const TicketDetailScreen({super.key});
+/// Detail screen for a single ticket (demo only)
+class _TicketDetailDemoScreen extends StatelessWidget {
+  const _TicketDetailDemoScreen();
 
   @override
   Widget build(BuildContext context) {

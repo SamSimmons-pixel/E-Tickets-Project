@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import '../ticket_repositories.dart/ticket_repository.dart';
+import '../repositories/ticket_repository.dart';
 import './ticket_event.dart';
 import './ticket_state.dart';
 
@@ -10,6 +10,7 @@ class TicketBloc extends Bloc<TicketEvent, TicketState> {
     on<LoadTickets>(_onLoadTickets);
     on<LoadTicketById>(_onLoadTicketById);
     on<RefreshTickets>(_onRefreshTickets);
+    on<SearchTicket>(_onSearchTicket);
   }
 
   Future<void> _onLoadTickets(
@@ -64,4 +65,30 @@ class TicketBloc extends Bloc<TicketEvent, TicketState> {
       emit(TicketError(message: 'Failed to refresh tickets'));
     }
   }
+
+  Future<void> _onSearchTicket(
+    SearchTicket event,
+    Emitter<TicketState> emit,
+  ) async {
+    emit(const TicketLoading());
+
+    try {
+      final tickets = await ticketRepository.SearchTicket(event.query);
+      emit(TicketLoaded(tickets: tickets));
+    } catch (e) {
+      emit(TicketError(message: 'Failed to search tickets'));
+    }
+  }
+
+//   on<SearchTicket>((event, emit) async {
+//   emit(const TicketLoading());
+
+//   try {
+//     final tickets = await ticketRepository.SearchTicket(event.query);
+//     emit(TicketLoaded(tickets: tickets));
+//   } catch (e) {
+//     emit(TicketError(message: e.toString()));
+//   }
+// });
 }
+

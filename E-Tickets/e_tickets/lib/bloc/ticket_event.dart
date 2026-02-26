@@ -26,3 +26,11 @@ class LoadTicketById extends TicketEvent {
 class RefreshTickets extends TicketEvent {
   const RefreshTickets();
 }
+
+class SearchTicket extends TicketEvent {
+  final String query;
+  const SearchTicket({required this.query});
+
+  @override
+  List<Object?> get props => [query];
+}

@@ -30,6 +30,7 @@ class TicketRepository {
       price: 100,
       date: DateTime.now(),
       imageUrl: 'https://example.com/ticket1.jpg',
+      userId: 1,
     ),
     Ticket(
       id: 2,
@@ -38,6 +39,7 @@ class TicketRepository {
       price: 200,
       date: DateTime.now(),
       imageUrl: 'https://example.com/ticket2.jpg',
+      userId: 2,
     ),
   ];
 
@@ -55,4 +57,14 @@ class TicketRepository {
       throw Exception('Ticket not found');
     }
   }
-}
+
+  Future<List<Ticket>> SearchTicket(String query) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    
+    try {
+      return _mocktickets.where((ticket) => ticket.title.toLowerCase().contains(query.toLowerCase())).toList();
+    } catch (e) {
+      throw Exception('Ticket not found');
+    }
+  }
+} 

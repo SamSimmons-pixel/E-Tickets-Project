@@ -5,7 +5,6 @@ import 'package:e_tickets/core/validators.dart';
 import 'package:e_tickets/models/user.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '';
 
 import './auth_event.dart';
 import './auth_state.dart';

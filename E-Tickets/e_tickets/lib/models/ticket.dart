@@ -7,6 +7,7 @@ class Ticket extends Equatable {
   final double price;
   final DateTime date;
   final String? imageUrl;
+  final int userId;
 
   const Ticket({
     required this.id,
@@ -15,6 +16,7 @@ class Ticket extends Equatable {
     required this.price,
     required this.date,
     required this.imageUrl,
+    required this.userId,
   });
 
   factory Ticket.fromJson(Map<String, dynamic> json) {
@@ -25,6 +27,7 @@ class Ticket extends Equatable {
       price: json['price'],
       date: DateTime.parse(json['date']),
       imageUrl: json['imageUrl'],
+      userId: json['userId'],
     );
   }
 
@@ -36,6 +39,7 @@ class Ticket extends Equatable {
       'price': price,
       'date': date.toIso8601String(),
       'imageUrl': imageUrl,
+      'userId': userId,
     };
   }
 

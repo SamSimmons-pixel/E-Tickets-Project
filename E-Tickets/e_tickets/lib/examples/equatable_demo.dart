@@ -104,6 +104,7 @@ void demonstrateWithEquatablePackage() {
     price: 100,
     date: DateTime(2024, 1, 1),
     imageUrl: 'url',
+    userId: 1,
   );
   
   final ticket2 = Ticket(
@@ -113,6 +114,7 @@ void demonstrateWithEquatablePackage() {
     price: 200,
     date: DateTime(2024, 1, 2),
     imageUrl: 'url',
+    userId: 2,
   );
   
   final state1 = TicketStateWithEquatable(tickets: [ticket1, ticket2]);
@@ -171,6 +173,7 @@ void demonstrateTesting() {
     price: 150,
     date: DateTime(2024, 6, 15),
     imageUrl: 'image.jpg',
+    userId: 1,
   );
   
   final expectedState = TicketStateWithEquatable(tickets: [ticket]);
